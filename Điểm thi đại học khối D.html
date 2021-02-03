@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tính điểm Đại học khối D</title>
+</head>
+
+<body>
+    <table>
+        <tr>
+            <td>Tính điểm Đại học khối D</td>
+
+        </tr>
+        <tr>
+            <td>Môn Toán</td>
+            <td><input type="number" id="toan" max="10" min="0"></td>
+        </tr>
+        <tr>
+            <td>Môn Văn</td>
+            <td><input type="number" id="van"  max="10" min="0"></td>
+        </tr>
+        <tr>
+            <td>Môn Anh</td>
+            <td><input type="number" id="anh"  max="10" min="0"></td>
+        </tr>
+        <tr>
+            <td>Khu vực</td>
+            <td><select id="khuvuc" onchange="tinh()">
+                    <option value="0.75">KV1</option>
+                    <option value="0.25">KV2</option>
+
+                    <option value="0.5">KV2-NT</option>
+
+                    <option value="0">KV3</option>
+                </select></td>
+        </tr>
+        <tr>
+            <td>Tổng điểm thi ĐH khối D của bạn là:</td>
+            <td id="diem"></td>
+        </tr>
+    </table>
+    <script>
+        function tinh() {
+            let khuvuc = document.getElementById("khuvuc").value
+            let diemcong
+            let toan =Number(document.getElementById("toan").value)
+            let van =Number(document.getElementById("van").value)
+
+            let anh =Number(document.getElementById("anh").value)
+
+            switch (khuvuc) {
+                case "0.75":
+                    diemcong = 0.75
+                    break
+                case "0.25":
+                    diemcong = 0.25
+                    break
+                case "0.5":
+                    diemcong = 0.5
+                    break
+                case "0":
+                    diemcong = 0
+                    break
+                default:
+                    break
+            }
+            let tong= toan+van+anh+diemcong
+            document.getElementById("diem").innerText= tong
+        }
+
+
+
+
+    </script>
+</body>
+
+</html>
